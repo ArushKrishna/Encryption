@@ -1,0 +1,19 @@
+import string
+alpha = list(string.ascii_uppercase)
+pi = list('31415926535897932384626433832795028841971693993751')
+for i in range(len(pi)):
+    pi[i] = int(pi[i])
+messege = list(input())
+string = []
+for x in messege:
+  if x != ' ':
+    string.append(x)
+encrypted = []
+for x in range(0,len(string),2):
+  encrypted.append(alpha[(alpha.index(string[x]) + pi[x]) % 26])
+  try:
+    encrypted.append(alpha[(alpha.index(string[x + 1]) - pi[x + 1]) % 26])
+  except:
+    pass
+  
+print(''.join(encrypted))
